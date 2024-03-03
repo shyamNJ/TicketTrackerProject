@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/style.css}">
+<title>Ticket Tracker Application</title>
+</head>
+<body class="home">
+<div class="content">
+	<p>
+		<b>Ticket Tracker Application</b> Tickets <a href="newTicket">New
+			Ticket</a>
+	</p>
+</div>
+		<h1>List of Tickets</h1>
+<div align="center">
+	
+	<form action="searchfunction" method="get">
+		<input type="text" name="search" placeholder="Search the ticket title here.."/>
+		<button type="submit">Search</button>
+	</form>
+	<table border="1">
+		<tr>
+			<th>#</th>
+			<th>Ticket Title</th>
+			<th>Ticket Short Description</th>
+			<th>Ticket Created on</th>
+			<th>Actions</th>
+			<th>Actions</th>
+			<th>Actions</th>
+		</tr>
+		<tr th:each="temp:${ticketTracker}">
+			
+			<td th:text="${temp.id}"></td>
+			<td th:text="${temp.ticketTitle}"></td>
+			<td th:text="${temp.ticketShortDiscription}"></td>
+			<td th:text="${temp.ticketCreatedOn}"></td>
+
+
+			<td><a th:href="@{editmethod(id=${temp.id})}" class="edit">Edit</a> 
+			<td><a th:href="@{deletemethod(id=${temp.id})}" class="delete">Delete</a></td>
+			<td><a th:href="@{viewmethod(id=${temp.id})}" class="view">View</a></td></td>
+			
+		</tr>
+
+	</table>
+</div>
+</body>
+</html>

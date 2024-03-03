@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ticket Tracker Application</title>
+<link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body class="view1">
+
+    <div class="content">
+		<p>
+			<b>Ticket Tracker Application</b> Tickets <a href="newTicket">New
+				Ticket</a>
+		</p>
+	</div>
+	<div class="content1">
+		
+			<h1 class="content2">View Ticket</h1>
+		
+		<form action="viewticket" method="post">
+			<label>#</label><br> 
+			<input type="number" readonly name="id" th:value="${viewid.id}" /><br> <br> 
+				
+			<label>Title</label><br>
+			<input type="text" readonly name="ticketTitle" th:value="${viewid.ticketTitle}" /><br> <br>
+				 
+			<label>Short Description</label><br> 
+			<input type="text" readonly name="ticketShortDiscription" th:value="${viewid.ticketShortDiscription}" /><br> <br> 
+			
+			<label>Content</label><br>		
+			<input type="date" readonly name="ticketCreatedOn" th:value="${viewid.ticketCreatedOn}" /><br> <br>
+
+			<button type="submit">Submit</button>
+		</form>
+	</div>
+	</div>
+</body>
+</html>
